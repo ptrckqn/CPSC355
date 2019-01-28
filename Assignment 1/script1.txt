@@ -1,0 +1,224 @@
+Script started on 2018-09-27 10:06:47-06:00
+]0;patrick.quan@csa2:~/Documents/CPSC 355/Assignment 1patrick.quan@csa2:~/Documents/CPSC 355/Assignment 1$ gdb A[KaA[K[KA1a
+GNU gdb (GDB) Fedora 8.1.1-3.fc28
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from A1a...done.
+(gdb) display [K/i$pc
+1: x/i $pc
+<error: No registers.>
+(gdb) b 8
+Breakpoint 1 at 0x40059c: file assignment1.s, line 8.
+(gdb) r
+Starting program: /home/ugc/patrick.quan/Documents/CPSC 355/Assignment 1/A1a 
+warning: the debug information found in "/usr/lib/debug//usr/lib64/ld-2.27.so.debug" does not match "/lib/ld-linux-aarch64.so.1" (CRC mismatch).
+
+Missing separate debuginfos, use: dnf debuginfo-install glibc-2.27-32.fc28.aarch64
+warning: the debug information found in "/usr/lib/debug//lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//usr/lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+
+Breakpoint 1, main () at assignment1.s:9
+9	          mov       x29, sp
+1: x/i $pc
+=> 0x40059c <main+4>:	mov	x29, sp
+(gdb) ni
+11	          mov       x23, -6 //Storing -6 into register x23. x23 is used as the counter for the loop, as well as the x in the equation
+1: x/i $pc
+=> 0x4005a0 <main+8>:	mov	x23, #0xfffffffffffffffa    	// #-6
+(gdb) ni
+12	          mov       x25, -999 //Register x25 used to store the maximum value. Initially set to -999
+1: x/i $pc
+=> 0x4005a4 <main+12>:	mov	x25, #0xfffffffffffffc19    	// #-999
+(gdb) ni
+loop () at assignment1.s:14
+14	          cmp       x23, 6 //Comparing the value stored in register x19 to 6. The range of the x values is -6 to 5.
+1: x/i $pc
+=> 0x4005a8 <loop>:	cmp	x23, #0x6
+(gdb) ni
+15	          beq       done //Conditional branch: If the above comparison is equal then the code will move to branch 'done' and omit the loop
+1: x/i $pc
+=> 0x4005ac <loop+4>:	b.eq	0x40061c <done>  // b.none
+(gdb) ni
+18	          mov       x19, -5 //Storing -5 into register x19
+1: x/i $pc
+=> 0x4005b0 <loop+8>:	mov	x19, #0xfffffffffffffffb    	// #-5
+(gdb) ni
+19	          mov       x20, -31 //Storing 31 into register x20
+1: x/i $pc
+=> 0x4005b4 <loop+12>:	mov	x20, #0xffffffffffffffe1    	// #-31
+(gdb) ni
+20	          mov       x21, 4 //Storing 4 into register x21
+1: x/i $pc
+=> 0x4005b8 <loop+16>:	mov	x21, #0x4                   	// #4
+(gdb) ni
+21	          mov       x22, 31 //Storing 31 into register x22
+1: x/i $pc
+=> 0x4005bc <loop+20>:	mov	x22, #0x1f                  	// #31
+(gdb) ni
+23	          mov       x24, x23 //Storing the current x value, stored in register x23, into x24
+1: x/i $pc
+=> 0x4005c0 <loop+24>:	mov	x24, x23
+(gdb) ni
+24	          mul       x24, x24, x24 //Squaring the value in register x24 and storing it in the register x24
+1: x/i $pc
+=> 0x4005c4 <loop+28>:	mul	x24, x24, x24
+(gdb) ni
+25	          mul       x24, x24, x23 //Multiplying the squared value in x24 by x to cube the original x
+1: x/i $pc
+=> 0x4005c8 <loop+32>:	mul	x24, x24, x23
+(gdb) ni
+26	          mul       x19, x19, x24 //Multiplying the value stored in x19 with the value stored in x24 and storing the value in x19
+1: x/i $pc
+=> 0x4005cc <loop+36>:	mul	x19, x19, x24
+(gdb) p $x24
+$1 = -216
+(gdb) ni
+28	          mov       x24, x23 //Storing the current x value, stored in register x23, into x24
+1: x/i $pc
+=> 0x4005d0 <loop+40>:	mov	x24, x23
+(gdb) p $xx[K19
+$2 = 1080
+(gdb) ni
+29	          mul       x24, x24, x24 //Squaring the value in register x24 and storing it in the register x24
+1: x/i $pc
+=> 0x4005d4 <loop+44>:	mul	x24, x24, x24
+(gdb) ni
+30	          mul       x20, x20, x24 //Multiplying the value stored in x20 with the value stored in x24 and storing the value in x20
+1: x/i $pc
+=> 0x4005d8 <loop+48>:	mul	x20, x20, x24
+(gdb) p $ [Kx24
+$3 = 36
+(gdb) ni
+32	          mov       x24, x23 //Storing the current x value, stored in register x23, into x24
+1: x/i $pc
+=> 0x4005dc <loop+52>:	mov	x24, x23
+(gdb) p $x20
+$4 = -1116
+(gdb) ni
+33	          mul       x21, x21, x24 //Multiplying the value stored in x21 with the value stored in x24 and storing the value in x21
+1: x/i $pc
+=> 0x4005e0 <loop+56>:	mul	x21, x21, x24
+(gdb) ni
+35	          add       x19, x19, x20 //Subtracting the value of x20 from x19 and storing it in x19
+1: x/i $pc
+=> 0x4005e4 <loop+60>:	add	x19, x19, x20
+(gdb) p $x21[K4
+$5 = -6
+(gdb) p $x21
+$6 = -24
+(gdb) ni
+37	          add       x19, x19, x21 //Adding the value of x21 to x19 and storing it in x19
+1: x/i $pc
+=> 0x4005e8 <loop+64>:	add	x19, x19, x21
+(gdb) p $x19
+$7 = -36
+(gdb) ni
+39	          add       x19, x19, x22 //Adding the value of x22 to x19 and storing the value in x19
+1: x/i $pc
+=> 0x4005ec <loop+68>:	add	x19, x19, x22
+(gdb) p $ [Kx19
+$8 = -60
+(gdb) ni
+41	          ldr       x0, =output //Loading the register x0 and storing the output into it
+1: x/i $pc
+=> 0x4005f0 <loop+72>:	ldr	x0, 0x400650 <output+44>
+(gdb) p $x19
+$9 = -29
+(gdb) ni
+42	          mov       x1, x23 //Storing the value of x (x23) into register x1 to be printed
+1: x/i $pc
+=> 0x4005f4 <loop+76>:	mov	x1, x23
+(gdb) ni
+43	          mov       x2, x19 //Storing the value of y (x19) into register x2 to be printed
+1: x/i $pc
+=> 0x4005f8 <loop+80>:	mov	x2, x19
+(gdb) ni
+45	          cmp       x19, x25 //Comparing the value stored in x19 (current y) to x25 (current max)
+1: x/i $pc
+=> 0x4005fc <loop+84>:	cmp	x19, x25
+(gdb) p $x23
+$10 = -6
+(gdb) p $x19
+$11 = -29
+(gdb) ni
+46	          b.gt       greater //If the value in x19 is greater than x25, go to branch greater
+1: x/i $pc
+=> 0x400600 <loop+88>:	b.gt	0x400614 <greater>
+(gdb) p $x25
+$12 = -999
+(gdb) ni
+greater () at assignment1.s:56
+56	          mov x25, x19 //Updating the maximum value in register x25 with the value in x19
+1: x/i $pc
+=> 0x400614 <greater>:	mov	x25, x19
+(gdb) ni
+57	          b toprint //Unconditional branch: Moving to the toprint branch after the new maximum value has been updated
+1: x/i $pc
+=> 0x400618 <greater+4>:	b	0x400604 <toprint>
+(gdb) p $x24[K5
+$13 = -29
+(gdb) ni
+toprint () at assignment1.s:48
+48	          mov       x3, x25 //Storing the maximum value into register x3 to be printed
+1: x/i $pc
+=> 0x400604 <toprint>:	mov	x3, x25
+(gdb) ni
+49	          bl        printf //Printing the output text
+1: x/i $pc
+=> 0x400608 <toprint+4>:	bl	0x400480 <printf@plt>
+(gdb) ni
+x = -6 	    y = -29 	  Maximum = -29
+51	          add       x23, x23, 1 //Incrementing the counter, and x, by 1
+1: x/i $pc
+=> 0x40060c <toprint+8>:	add	x23, x23, #0x1
+(gdb) ni
+53	          b         loop //Unconditional branch: Starting the code back at branch loop
+1: x/i $pc
+=> 0x400610 <toprint+12>:	b	0x4005a8 <loop>
+(gdb) p $ x[K[Kx23
+$14 = -5
+(gdb) ni
+x = -5 	    y = -139 	  Maximum = -29
+51	          add       x23, x23, 1 //Incrementing the counter, and x, by 1
+1: x/i $pc
+=> 0x40060c <toprint+8>:	add	x23, x23, #0x1
+(gdb) c
+Continuing.
+x = -4 	    y = -161 	  Maximum = -29
+x = -3 	    y = -125 	  Maximum = -29
+x = -2 	    y = -61 	  Maximum = -29
+x = -1 	    y = 1 	  Maximum = 1
+x = 0 	    y = 31 	  Maximum = 31
+x = 1 	    y = -1 	  Maximum = 31
+x = 2 	    y = -125 	  Maximum = 31
+x = 3 	    y = -371 	  Maximum = 31
+x = 4 	    y = -769 	  Maximum = 31
+x = 5 	    y = -1349 	  Maximum = 31
+
+Program received signal SIGABRT, Aborted.
+0x0000ffffbf56e97c in raise () from /lib64/libc.so.6
+1: x/i $pc
+=> 0xffffbf56e97c <raise+172>:	ldr	x19, [x19, #3816]
+(gdb) q[Kq
+A debugging session is active.
+
+	Inferior 1 [process 29017] will be killed.
+
+Quit anyway? (y or n) y
+]0;patrick.quan@csa2:~/Documents/CPSC 355/Assignment 1patrick.quan@csa2:~/Documents/CPSC 355/Assignment 1$ exit
+exit
+
+Script done on 2018-09-27 10:11:30-06:00

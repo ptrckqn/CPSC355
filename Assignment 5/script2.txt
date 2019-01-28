@@ -1,0 +1,11 @@
+Script started on 2018-11-28 11:19:23-07:00
+]0;patrick.quan@csa2:~/Documents/CPSC 355/Assignment 5patrick.quan@csa2:~/Documents/CPSC 355/Assignment 5$ ./a5b 12 25
+December 25th is Winter
+]0;patrick.quan@csa2:~/Documents/CPSC 355/Assignment 5patrick.quan@csa2:~/Documents/CPSC 355/Assignment 5$ ./a5b 12 25[K[K[K[K[K01 [K[K2[K1 11
+January 11th is Winter
+]0;patrick.quan@csa2:~/Documents/CPSC 355/Assignment 5patrick.quan@csa2:~/Documents/CPSC 355/Assignment 5$ ./a5b 01 11[1P 117 11[C[C[K21
+July 21st is Summer
+]0;patrick.quan@csa2:~/Documents/CPSC 355/Assignment 5patrick.quan@csa2:~/Documents/CPSC 355/Assignment 5$ exit
+exit
+
+Script done on 2018-11-28 11:19:58-07:00

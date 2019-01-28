@@ -1,0 +1,350 @@
+Script started on 2018-10-26 09:53:59-06:00
+]0;patrick.quan@csa2:~/Documents/CPSC 355/Assignment 3patrick.quan@csa2:~/Documents/CPSC 355/Assignment 3$ gdb 13[K[Ka3
+GNU gdb (GDB) Fedora 8.1.1-3.fc28
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a3...done.
+(gdb) b 72
+Breakpoint 1 at 0x400668: file a3.s, line 72.
+(gdb) r
+Starting program: /home/ugc/patrick.quan/Documents/CPSC 355/Assignment 3/a3 
+warning: the debug information found in "/usr/lib/debug//usr/lib64/ld-2.27.so.debug" does not match "/lib/ld-linux-aarch64.so.1" (CRC mismatch).
+
+Missing separate debuginfos, use: dnf debuginfo-install glibc-2.27-32.fc28.aarch64
+warning: the debug information found in "/usr/lib/debug//lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//usr/lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+v[0] : 103
+v[1] : 198
+v[2] : 105
+v[3] : 115
+v[4] : 81
+v[5] : 255
+v[6] : 74
+v[7] : 236
+v[8] : 41
+v[9] : 205
+v[10] : 186
+v[11] : 171
+v[12] : 242
+v[13] : 251
+v[14] : 227
+v[15] : 70
+v[16] : 124
+v[17] : 194
+v[18] : 84
+v[19] : 248
+v[20] : 27
+v[21] : 232
+v[22] : 231
+v[23] : 141
+v[24] : 118
+v[25] : 90
+v[26] : 46
+v[27] : 99
+v[28] : 51
+v[29] : 159
+v[30] : 201
+v[31] : 154
+v[32] : 102
+v[33] : 50
+v[34] : 13
+v[35] : 183
+v[36] : 49
+v[37] : 88
+v[38] : 163
+v[39] : 90
+v[40] : 37
+v[41] : 93
+v[42] : 5
+v[43] : 23
+v[44] : 88
+v[45] : 233
+v[46] : 94
+v[47] : 212
+v[48] : 171
+v[49] : 178
+
+Breakpoint 1, forLoopTwo () at a3.s:72
+72	          b           testThree //Unconditional branch to the third test
+(gdb) x/d $fp_16[K[K[K+16
+0xfffffffff090:	103
+(gdb) x/d $fp+16[K[K20\[K
+0xfffffffff094:	198
+(gdb) x/d $fp+20[K4
+0xfffffffff098:	105
+(gdb) x/d $fp+24[K8
+0xfffffffff09c:	115
+(gdb) x/d $fp+28[K[K2[K32
+0xfffffffff0a0:	81
+(gdb) x/d $fp+32[K6
+0xfffffffff0a4:	255
+(gdb) x/d $fp+36[K[K40
+0xfffffffff0a8:	74
+(gdb) x/d $fp+40[K4
+0xfffffffff0ac:	236
+(gdb) x/d $fp+44[K8
+0xfffffffff0b0:	41
+(gdb) x/d $fp+48[K[K52
+0xfffffffff0b4:	205
+(gdb) x/d $fp+52[K6
+0xfffffffff0b8:	186
+(gdb) x/d $fp+56[K[K60
+0xfffffffff0bc:	171
+(gdb) x/d $fp+60[K4
+0xfffffffff0c0:	242
+(gdb) x/d $fp+64[K8
+0xfffffffff0c4:	251
+(gdb) x/d $fp+68[K[K72
+0xfffffffff0c8:	227
+(gdb) x/d $fp+72[K6
+0xfffffffff0cc:	70
+(gdb) x/d $fp+76[K[K80
+0xfffffffff0d0:	124
+(gdb) x/d $fp+80[K4
+0xfffffffff0d4:	194
+(gdb) x/d $fp+84[K8
+0xfffffffff0d8:	84
+(gdb) x/d $fp+88[K[K92
+0xfffffffff0dc:	248
+(gdb) x/d $fp+92[K6
+0xfffffffff0e0:	27
+(gdb) x/d $fp+96[K[K100
+0xfffffffff0e4:	232
+(gdb) x/d $fp+100[K4
+0xfffffffff0e8:	231
+(gdb) x/d $fp+104[K8
+0xfffffffff0ec:	141
+(gdb) x/d $fp+108[K[K12
+0xfffffffff0f0:	118
+(gdb) x/d $fp+112[K6
+0xfffffffff0f4:	90
+(gdb) x/d $fp+116[K[K20
+0xfffffffff0f8:	46
+(gdb) x/d $fp+120[K4
+0xfffffffff0fc:	99
+(gdb) x/d $fp+124[K8
+0xfffffffff100:	51
+(gdb) x/d $fp+128[K[K32
+0xfffffffff104:	159
+(gdb) x/d $fp+132[K6
+0xfffffffff108:	201
+(gdb) x/d $fp+136[K[K40
+0xfffffffff10c:	154
+(gdb) x/d $fp+140[K4
+0xfffffffff110:	102
+(gdb) x/d $fp+144[K8
+0xfffffffff114:	50
+(gdb) x/d $fp+148[K[K52
+0xfffffffff118:	13
+(gdb) x/d $fp+152[K6
+0xfffffffff11c:	183
+(gdb) x/d $fp+156[K[K60
+0xfffffffff120:	49
+(gdb) x/d $fp+160[K4
+0xfffffffff124:	88
+(gdb) x/d $fp+164[K8
+0xfffffffff128:	163
+(gdb) x/d $fp+168[K[K72
+0xfffffffff12c:	90
+(gdb) x/d $fp+172[K7[K6
+0xfffffffff130:	37
+(gdb) x/d $fp+176[K[K80
+0xfffffffff134:	93
+(gdb) x/d $fp+180[K4
+0xfffffffff138:	5
+(gdb) x/d $fp+184[K8
+0xfffffffff13c:	23
+(gdb) x/d $fp+188[K[K92
+0xfffffffff140:	88
+(gdb) x/d $fp+192[K6
+0xfffffffff144:	233
+(gdb) x/d $fp+196[K[K[K200
+0xfffffffff148:	94
+(gdb) x/d $fp+200[K4
+0xfffffffff14c:	212
+(gdb) x/d $fp+204[K8
+0xfffffffff150:	171
+(gdb) x/d $fp+208[K[K12
+0xfffffffff154:	178
+(gdb) delete 1 [K
+(gdb) b 139
+Breakpoint 2 at 0x40071c: file a3.s, line 139.
+(gdb) c
+Continuing.
+
+Sorted Array:
+
+Breakpoint 2, testFour () at a3.s:139
+139	          b.lt        printSorted //If index i is less than the size of the array, branch to printSorted
+(gdb) cb 139delete 1[C[C[C[C[C[Cx/d $fp+2120840196288407626840562484036228401620840[1P962884076268405624840362284016[C[C[C[C[C[Cr[Kb 72r[Kx/d $fp+16
+0xfffffffff090:	5
+(gdb) x/d $fp+16[K[K20
+0xfffffffff094:	13
+(gdb) x/d $fp+20[K4
+0xfffffffff098:	23
+(gdb) x/d $fp+24[K8
+0xfffffffff09c:	27
+(gdb) x/d $fp+28[K[K32
+0xfffffffff0a0:	37
+(gdb) x/d $fp+32[K6
+0xfffffffff0a4:	41
+(gdb) x/d $fp+36[K4[K[K40
+0xfffffffff0a8:	46
+(gdb) x/d $fp+40[K4
+0xfffffffff0ac:	49
+(gdb) x/d $fp+44[K8
+0xfffffffff0b0:	50
+(gdb) x/d $fp+48[K[K52
+0xfffffffff0b4:	51
+(gdb) x/d $fp+52[K6
+0xfffffffff0b8:	70
+(gdb) x/d $fp+56[K[K60
+0xfffffffff0bc:	74
+(gdb) x/d $fp+60[K4
+0xfffffffff0c0:	81
+(gdb) x/d $fp+64[K8
+0xfffffffff0c4:	84
+(gdb) x/d $fp+68[K[K72
+0xfffffffff0c8:	88
+(gdb) x/d $fp+72[K6
+0xfffffffff0cc:	88
+(gdb) x/d $fp+76[K[K80
+0xfffffffff0d0:	90
+(gdb) x/d $fp+80[K4
+0xfffffffff0d4:	90
+(gdb) x/d $fp+84[K8
+0xfffffffff0d8:	93
+(gdb) x/d $fp+88[K[K92
+0xfffffffff0dc:	94
+(gdb) x/d $fp+92[K6
+0xfffffffff0e0:	99
+(gdb) x/d $fp+96[K[K100
+0xfffffffff0e4:	102
+(gdb) x/d $fp+100[K4
+0xfffffffff0e8:	103
+(gdb) x/d $fp+104[K8
+0xfffffffff0ec:	105
+(gdb) x/d $fp+108[K[K12
+0xfffffffff0f0:	115
+(gdb) x/d $fp+112[K6
+0xfffffffff0f4:	118
+(gdb) x/d $fp+116[K[K20
+0xfffffffff0f8:	124
+(gdb) x/d $fp+120[K4
+0xfffffffff0fc:	141
+(gdb) x/d $fp+124[K8
+0xfffffffff100:	154
+(gdb) x/d $fp+128[K[K32
+0xfffffffff104:	159
+(gdb) x/d $fp+132[K6
+0xfffffffff108:	163
+(gdb) x/d $fp+136[K[K40
+0xfffffffff10c:	171
+(gdb) x/d $fp+140[K4
+0xfffffffff110:	171
+(gdb) x/d $fp+144[K8
+0xfffffffff114:	178
+(gdb) x/d $fp+148[K[K52
+0xfffffffff118:	183
+(gdb) x/d $fp+152[K6
+0xfffffffff11c:	186
+(gdb) x/d $fp+156[K[K60
+0xfffffffff120:	194
+(gdb) x/d $fp+160[K4
+0xfffffffff124:	198
+(gdb) x/d $fp+164[K8
+0xfffffffff128:	201
+(gdb) x/d $fp+168[K[K72
+0xfffffffff12c:	205
+(gdb) x/d $fp+172[K6
+0xfffffffff130:	212
+(gdb) x/d $fp+176[K[K80
+0xfffffffff134:	227
+(gdb) x/d $fp+180[K4
+0xfffffffff138:	231
+(gdb) x/d $fp+184[K88[K
+0xfffffffff13c:	232
+(gdb) x/d $fp+188[K[K92
+0xfffffffff140:	233
+(gdb) x/d $fp+192[K6
+0xfffffffff144:	236
+(gdb) x/d $fp+196[K[K[K200
+0xfffffffff148:	242
+(gdb) x/d $fp+200[K4
+0xfffffffff14c:	248
+(gdb) x/d $fp+204[K8
+0xfffffffff150:	251
+(gdb) x/d $fp+208[K[K12
+0xfffffffff154:	255
+(gdb) delete 2
+(gdb) c
+Continuing.
+v[0]: 5
+v[1]: 13
+v[2]: 23
+v[3]: 27
+v[4]: 37
+v[5]: 41
+v[6]: 46
+v[7]: 49
+v[8]: 50
+v[9]: 51
+v[10]: 70
+v[11]: 74
+v[12]: 81
+v[13]: 84
+v[14]: 88
+v[15]: 88
+v[16]: 90
+v[17]: 90
+v[18]: 93
+v[19]: 94
+v[20]: 99
+v[21]: 102
+v[22]: 103
+v[23]: 105
+v[24]: 115
+v[25]: 118
+v[26]: 124
+v[27]: 141
+v[28]: 154
+v[29]: 159
+v[30]: 163
+v[31]: 171
+v[32]: 171
+v[33]: 178
+v[34]: 183
+v[35]: 186
+v[36]: 194
+v[37]: 198
+v[38]: 201
+v[39]: 205
+v[40]: 212
+v[41]: 227
+v[42]: 231
+v[43]: 232
+v[44]: 233
+v[45]: 236
+v[46]: 242
+v[47]: 248
+v[48]: 251
+v[49]: 255
+[Inferior 1 (process 32455) exited with code 013]
+(gdb) q
+]0;patrick.quan@csa2:~/Documents/CPSC 355/Assignment 3patrick.quan@csa2:~/Documents/CPSC 355/Assignment 3$ exit
+exit
+
+Script done on 2018-10-26 09:59:49-06:00

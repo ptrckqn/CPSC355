@@ -1,0 +1,206 @@
+Script started on 2018-11-06 12:44:19-07:00
+]0;patrick.quan@csa1:~/Documents/CPSC 355/Assignment 4patrick.quan@csa1:~/Documents/CPSC 355/Assignment 4$ gdb a4
+GNU gdb (GDB) Fedora 8.1.1-3.fc28
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a4...done.
+(gdb) b 1 
+Breakpoint 1 at 0x400604: file a4.s, line 1.
+(gdb) r
+Starting program: /home/ugc/patrick.quan/Documents/CPSC 355/Assignment 4/a4 
+warning: the debug information found in "/usr/lib/debug//usr/lib64/ld-2.27.so.debug" does not match "/lib/ld-linux-aarch64.so.1" (CRC mismatch).
+
+Missing separate debuginfos, use: dnf debuginfo-install glibc-2.27-32.fc28.aarch64
+warning: the debug information found in "/usr/lib/debug//lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//usr/lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+
+Breakpoint 1, main () at a4.s:36
+36	  mov     fp, sp //Moving the SP into the FP
+(gdb) n
+38	  add     x19, fp, first_s //Setting the base in the stack for b1
+(gdb) n
+39	  add     x20, fp, second_s //Setting the base in the stack for b2
+(gdb) n
+42	  mov     x0, x19 //Passing in the location of b1 into the argument
+(gdb) n
+43	  bl      newBox //Calling subroutine newBox
+(gdb) n
+44	  mov     x0, x20 //Passing in the location of b2 into the argument
+(gdb) x/d $fp+16
+0xfffffffff110:	0
+(gdb) x/d $fp+20
+0xfffffffff114:	0
+(gdb) x/d $fp+24
+0xfffffffff118:	1
+(gdb) x/d $fp+28
+0xfffffffff11c:	1
+(gdb) x/d $fp+32
+0xfffffffff120:	1
+(gdb) n
+45	  bl      newBox //Calling subroutine newBox
+(gdb) n
+48	  adrp    x0, printOne //Storing the first print template into register x0 to be printed
+(gdb) x/d $fp+36
+0xfffffffff124:	0
+(gdb) x/d $fp+40
+0xfffffffff128:	0
+(gdb) x/d $fp+44
+0xfffffffff12c:	1
+(gdb) x/d $fp+48
+0xfffffffff130:	1
+(gdb) x/d $fp+52
+0xfffffffff134:	1
+(gdb) n
+49	  add     x0, x0, :lo12:printOne //Adding the first print template to the first 12 bits
+(gdb) n
+50	  bl      printf //Printing the first print template
+(gdb) n
+Initial box values:
+53	  mov     x0, x19 //b1 address in stack
+(gdb) n
+54	  mov     x1, 1 //Box number
+(gdb) n
+55	  bl      printBox //Calling the subroutine printBox to print the contents of the box
+(gdb) n
+Box #1: origin = (0, 0) width = 1 height = 1 area = 1 
+58	  mov     x0, x20 //b1 address in stack
+(gdb) n
+59	  mov     x1, 2 //Box number
+(gdb) n
+60	  bl      printBox //Calling the subroutine printBox to print the contents of the box
+(gdb) n
+Box #2: origin = (0, 0) width = 1 height = 1 area = 1 
+62	  mov     x0, x19 //Storing the pointer of b1 to x0
+(gdb) n
+63	  mov     x1, x20 //Storing the pointer of b2 to x1
+(gdb) n
+64	  bl      equal //Calling subroutine equal
+(gdb) n
+65	  mov     x23, x0 //Storing the results of equal to x23
+(gdb) x/d $fp+16
+0xfffffffff110:	0
+(gdb) x/d $fp+20
+0xfffffffff114:	0
+(gdb) x/d $fp+24
+0xfffffffff118:	1
+(gdb) x/d $fp+28
+0xfffffffff11c:	1
+(gdb) x/d $fp+32
+0xfffffffff120:	1
+(gdb) x/d $fp+36
+0xfffffffff124:	0
+(gdb) x/d $fp+40
+0xfffffffff128:	0
+(gdb) x/d $fp+44
+0xfffffffff12c:	1
+(gdb) x/d $fp+48
+0xfffffffff130:	1
+(gdb) x/d $fp+52
+0xfffffffff134:	1
+(gdb) n
+66	  cmp     x23, 1 //If equal == true
+(gdb) n
+67	  b.ne    next //If equal != true, branch to next
+(gdb) n
+70	  mov     x0, x19 //Storing the pointer of b1 to x0
+(gdb) n
+71	  mov     x1, -5 //Storing -5 as second argument x1
+(gdb) n
+72	  mov     x2, 7  //Storing 7 as third argument x2
+(gdb) n
+73	  bl      move //Calling subroutine move
+(gdb) n
+75	  mov     x0, x20 //Storing the pointer of b2 to x0
+(gdb) x/d $fp+16
+0xfffffffff110:	-5
+(gdb) x/d $fp+20
+0xfffffffff114:	7
+(gdb) x/d $fp+24
+0xfffffffff118:	1
+(gdb) x/d $fp+28
+0xfffffffff11c:	1
+(gdb) x/d $fp+32
+0xfffffffff120:	1
+(gdb) n
+76	  mov     x1, 3 //Storing 3 as the second argument x1
+(gdb) n
+77	  bl      expand //Calling subroutine expand
+(gdb) s
+expand () at a4.s:140
+140	stp     fp, lr, [sp, alloc]! //Storing FP and LR into the stack and allocating the required memory
+(gdb) s
+141	mov     fp, sp //Moving the SP into the FP
+(gdb) s
+143	ldr     x9, [x0, dim + dimW] //b.size.width
+(gdb) s
+144	ldr     x10, [x0, dim + dimH] //b.size.height
+(gdb) s
+146	mul     x9, x9, x1 //b.origin.x * factor
+(gdb) s
+147	mul     x10, x10, x1 //b.origin.y * factor
+(gdb) s
+148	mul     x11, x9, x10 //b.origin.x * b.origin.y
+(gdb) s
+150	str     x9, [x0, dim + dimW] //b.origin.x = b.origin.x * factor
+(gdb) s
+151	str     x10, [x0, dim + dimH] //b.origin.y = b.origin.y * factor
+(gdb) s
+152	str     x11, [x0, area] //b.origin.area = b.origin.x * b.origin.y
+(gdb) s
+154	ldp     fp, lr, [sp], dealloc //Restoring fp and lr from stack
+(gdb) s
+expand () at a4.s:155
+155	ret //returning to main
+(gdb) x/d $fp+36
+0xfffffffff124:	0
+(gdb) x/d $fp+40
+0xfffffffff128:	0
+(gdb) x/d $fp+44
+0xfffffffff12c:	3
+(gdb) x/d $fp+48
+0xfffffffff130:	3
+(gdb) x/d $fp+52
+0xfffffffff134:	9
+(gdb) n
+next () at a4.s:81
+81	  adrp    x0, printThree //Storing the third print template into register x0 to be printed
+(gdb) n
+82	  add     x0, x0, :lo12:printThree //Adding the third print template to the first 12 bits
+(gdb) n
+83	  bl      printf //Printing the third print template
+(gdb) n
+
+Changed box values:
+86	  mov     x0, x19 //b1 address in stack
+(gdb) n
+87	  mov     x1, 1 //Box number
+(gdb) n
+88	  bl      printBox //Calling the subroutine printBox to print the contents of the box
+(gdb) n
+Box #1: origin = (-5, 7) width = 1 height = 1 area = 1 
+91	  mov     x0, x20 //b1 address in stack
+(gdb) n
+92	  mov     x1, 2 //Box number
+(gdb) n
+93	  bl      printBox //Calling the subroutine printBox to print the contents of the box
+(gdb) n
+Box #2: origin = (0, 0) width = 3 height = 3 area = 9 
+[Inferior 1 (process 23136) exited with code 067]
+(gdb) n[Kq
+]0;patrick.quan@csa1:~/Documents/CPSC 355/Assignment 4patrick.quan@csa1:~/Documents/CPSC 355/Assignment 4$ exit
+exit
+
+Script done on 2018-11-06 12:46:00-07:00
